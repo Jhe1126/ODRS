@@ -25,25 +25,36 @@ const submit = () => {
 };
 </script>
 
-<template>
-    <BreezeGuestLayout>
+    
+<template >
+    <body>
+    <BreezeGuestLayout class="bg-auto bg-no-repeat bg-center ..." style="background-image: url('images/background.png');">
+        
         <Head title="Log in" />
-
+    
         <BreezeValidationErrors class="mb-4" />
-
+        
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
         </div>
-
+        
         <form @submit.prevent="submit">
             <div>
-                <BreezeLabel for="email" value="Email" />
-                <BreezeInput id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
+            <img class="object-contain h-48 w-96 ..." src="images/logo.png" alt="" >
+            </div>
+            <br><br>
+            <div class="text-center ...">
+                <h1 class="text-3xl ..."><b>Login</b></h1>
+            </div>
+            <br><br>
+            <div>
+                <BreezeLabel for="email" />
+                <BreezeInput id="email" placeholder="Student Number" type="text" class="mt-1 block w-full" v-model="form.email" required autofocus autocomplete="username" />
             </div>
 
             <div class="mt-4">
-                <BreezeLabel for="password" value="Password" />
-                <BreezeInput id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <BreezeLabel for="password" />
+                <BreezeInput id="password" placeholder="Password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <div class="block mt-4">
@@ -52,16 +63,22 @@ const submit = () => {
                     <span class="ml-2 text-sm text-gray-600">Remember me</span>
                 </label>
             </div>
-
-            <div class="flex items-center justify-end mt-4">
-                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
-                    Forgot your password?
-                </Link>
-
-                <BreezeButton class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+               <div class="flex justify-center">
+                <BreezeButton class="ml-4 flex" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </BreezeButton>
             </div>
+            <div class="flex justify-start">
+                <Link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
+                    Forgot your password?
+                </Link>
+               </div> 
+               <div>
+                <br><br><br><br><br><br><br><br>
+               </div>
         </form>
+
     </BreezeGuestLayout>
+
+</body>
 </template>

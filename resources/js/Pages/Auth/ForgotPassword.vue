@@ -20,7 +20,7 @@ const submit = () => {
 </script>
 
 <template>
-    <BreezeGuestLayout>
+    <BreezeGuestLayout class="bg-auto bg-no-repeat bg-center ..." style="background-image: url('images/background.png');">
         <Head title="Forgot Password" />
 
         <div class="mb-4 text-sm text-gray-600">
